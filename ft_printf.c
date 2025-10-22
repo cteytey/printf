@@ -6,7 +6,7 @@
 /*   By: judehon <judehon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 13:56:30 by judehon           #+#    #+#             */
-/*   Updated: 2025/10/21 17:52:57 by judehon          ###   ########.fr       */
+/*   Updated: 2025/10/22 16:12:07 by judehon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_printf(const char *s, ...)
 {
-	va_list args;
+	va_list	args;
 	int		i;
 
 	i = 0;
@@ -34,5 +34,3 @@ int	ft_printf(const char *s, ...)
 	va_end(args);
 	return (0);
 }
-
-
