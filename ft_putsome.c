@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putsome.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judehon <judehon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 15:11:31 by judehon           #+#    #+#             */
-/*   Updated: 2025/10/22 17:42:09 by judehon          ###   ########.fr       */
+/*   Updated: 2025/10/22 18:49:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,3 @@ void	ft_putnbr(unsigned int nb)
 		ft_putchar(num + '0');
 	}
 }
-
-void	ft_putnbrhex(unsigned int nb, char c)
-{
-	char	*base;
-	char	*base_caps;
-
-	base = "0123456789abcdef";
-	base_caps = "0123456789ABCDEF";
-	if (nb >= 16)
-		ft_putnbrhex(nb / 16, c);
-	if (c == 'x')
-		write (1, &base[nb % 16], 1);
-	else if (c == 'X')
-		write (1, &base_caps[nb % 16], 1);
-}
-
