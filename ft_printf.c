@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judehon <judehon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 13:56:30 by judehon           #+#    #+#             */
-/*   Updated: 2025/10/23 19:01:26 by judehon          ###   ########.fr       */
+/*   Updated: 2025/10/23 19:33:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	ft_def_type(va_list args, char c)
 	if (c == 'p')
 		return (ft_print_pointer(va_arg(args, void *)));
 	if (c == 'd' || c == 'i')
-		return (ft_putnbr(va_arg(args, int)));
+		return (ft_putnbr((int)(va_arg(args, int))));
 	if (c == 'u')
 		return (ft_putnbr(va_arg(args, unsigned int)));
 	if (c == 'x' || c == 'X')
