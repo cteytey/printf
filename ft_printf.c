@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: judehon <judehon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 13:56:30 by judehon           #+#    #+#             */
-/*   Updated: 2025/10/22 18:48:49 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/23 17:52:07 by judehon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printlib.h"
+#include "libftprintf.h"
 
 static int	ft_putnbrhex(unsigned int nb, char c)
 {
@@ -30,6 +30,16 @@ static int	ft_putnbrhex(unsigned int nb, char c)
 	return (i + 1);
 }
 
+static void	ft_print_pointer(void	*ptr)
+{
+	unsigned int c;
+
+	c = 42;
+	ptr = &c;
+	write (1, "0x", 2);
+	ft_putnbrhex(c, 'x');
+}
+
 static int	check_type(va_list args, char c)
 {
 	if(c == 'c')
@@ -37,7 +47,7 @@ static int	check_type(va_list args, char c)
 	if(c == 's')
 		ft_putstr(va_arg(args, char *));
 	if(c == 'p')
-		ft_putstr(va_arg(args, char *));
+		ft_print_pointer(va_arg(args, void *));
 	if(c == 'd' || c == 'i')
 		ft_putnbr(va_arg(args, int));
 	if(c == 'u')
@@ -71,7 +81,12 @@ int	ft_printf(const char *s, ...)
 	return (0);
 }
 
+#include <stdio.h>
 int	main()
 {
-	ft_printf("nombre de base : %d\n nombre en hexadecimal : %x", 12345, 12345);
+	char n = '1';
+	void *ptr = &n;
+
+	printf("%p\n", ptr);
+	ft_printf("%p\n", ptr);
 }

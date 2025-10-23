@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printlib.h                                         :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: judehon <judehon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 16:07:18 by judehon           #+#    #+#             */
-/*   Updated: 2025/10/22 18:36:44 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/23 17:40:34 by judehon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTLIB_H
-# define PRINTLIB_H
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
 # include <stdarg.h>
 # include <unistd.h>
@@ -20,7 +20,6 @@
 void	ft_putstr(char *str);
 void	ft_putnbr(unsigned int nb);
 void	ft_putchar(char c);
-static int		ft_putnbrhex(unsigned int nb, char c);
 int		ft_printf(const char *s, ...);
 
 #endif
