@@ -6,7 +6,7 @@
 #    By: judehon <judehon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/23 17:36:54 by judehon           #+#    #+#              #
-#    Updated: 2025/10/23 17:40:33 by judehon          ###   ########.fr        #
+#    Updated: 2025/10/23 18:03:31 by judehon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ ARCS = -ar rcs
 SOURCE = ft_printf.c \
 	ft_putsome.c \
 
-HEADER = -Ilibftprintf.h
+HEADER = -Ift_printf.h
 
 OBJ = $(SOURCE:.c=.o)
 

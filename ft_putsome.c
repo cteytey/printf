@@ -6,40 +6,44 @@
 /*   By: judehon <judehon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 15:11:31 by judehon           #+#    #+#             */
-/*   Updated: 2025/10/23 17:40:44 by judehon          ###   ########.fr       */
+/*   Updated: 2025/10/23 18:35:53 by judehon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }
 
-void	ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-	while (*str)
-		write (1, str++, 1);
+	int	i;
+
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	i = 0;
+	while (str[i])
+		write (1, &str[i++], 1);
+	return (i);
 }
 
-void	ft_putnbr(unsigned int nb)
+int	ft_putnbr(unsigned int n)
 {
-	long	num;
+	unsigned int	tmp;
+	int				i;
+	char			c;
 
-	num = nb;
-	if (num < 0)
-	{
-		num = num * -1;
-		ft_putchar('-');
-	}
-	if (num > 9)
-	{
-		ft_putnbr(num / 10);
-		ft_putnbr(num % 10);
-	}
-	else
-	{
-		ft_putchar(num + '0');
-	}
+	i = 0;
+	tmp = n;
+	if (tmp >= 10)
+		i += ft_putnbr(tmp / 10);
+	c = tmp % 10 + '0';
+	write(1, &c, 1);
+	return (i + 1);
 }
