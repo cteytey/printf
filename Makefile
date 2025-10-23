@@ -6,7 +6,7 @@
 #    By: judehon <judehon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/23 17:36:54 by judehon           #+#    #+#              #
-#    Updated: 2025/10/23 18:03:31 by judehon          ###   ########.fr        #
+#    Updated: 2025/10/23 18:54:09 by judehon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,5 +35,9 @@ fclean : clean
 	rm -rf $(NAME)
 
 re : fclean all
+
+run: $(NAME)
+	$(CC) main.c $(NAME)
+	./a.out
 
 .PHONY: all clean fclean re

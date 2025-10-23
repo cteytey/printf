@@ -6,7 +6,7 @@
 /*   By: judehon <judehon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 13:56:30 by judehon           #+#    #+#             */
-/*   Updated: 2025/10/23 18:41:34 by judehon          ###   ########.fr       */
+/*   Updated: 2025/10/23 19:01:26 by judehon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,29 +71,23 @@ int	ft_printf(const char *s, ...)
 {
 	va_list	args;
 	int		i;
+	int		total;
 
 	i = 0;
+	total = 0;
 	va_start(args, s);
 	while (s[i])
 	{
 		if (s[i] == '%')
 		{
 			i++;
-			ft_def_type(args, s[i]);
+			total += ft_def_type(args, s[i]) - 1;
 		}
 		else
 			write (1, &s[i], 1);
+		total++;
 		i++;
 	}
 	va_end(args);
-	return (0);
-}
-#include <stdio.h>
-int	main()
-{
-	int	i = 123456;
-	unsigned int u = 123456;
-	void *ptr = &i;
-	printf("%c, %s, %p, %d, %i, %u, %x, %X, %%\n", 'c', "caca", ptr, i, i, u, i, i);
-	ft_printf("%c, %s, %p, %d, %i, %u, %x, %X, %%\n", 'c', "caca", ptr, i, i, u, i, i);
+	return (total);
 }
