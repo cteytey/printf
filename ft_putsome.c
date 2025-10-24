@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putsome.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: judehon <judehon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 15:11:31 by judehon           #+#    #+#             */
-/*   Updated: 2025/10/23 19:33:19 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/24 11:56:51 by judehon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_putstr(char *str)
 	return (i);
 }
 
-int	ft_putnbr(unsigned int n)
+int	ft_putnbr_unsigned(unsigned int n)
 {
 	unsigned int	tmp;
 	int				i;
@@ -42,8 +42,24 @@ int	ft_putnbr(unsigned int n)
 	i = 0;
 	tmp = n;
 	if (tmp >= 10)
-		i += ft_putnbr(tmp / 10);
+		i += ft_putnbr_unsigned(tmp / 10);
 	c = tmp % 10 + '0';
 	write(1, &c, 1);
 	return (i + 1);
+}
+
+int	ft_putnbr(long n)
+{
+	int	count;
+
+	count = 0;
+	if (n < 0)
+	{
+		count += ft_putchar('-');
+		n = -n;
+	}
+	if (n >= 10)
+		count += ft_putnbr(n / 10);
+	count += ft_putchar(n % 10 + '0');
+	return (count);
 }
